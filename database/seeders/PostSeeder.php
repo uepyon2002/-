@@ -18,13 +18,13 @@ class PostSeeder extends Seeder
     {
         DB::table('posts')->insert([
                 'user_id' => '1',
-                'title' => 'タイトル',
-                'body' => '本文',
+                'title' => 'like',
+                'body' => 'like',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'report' => '1',
                 'movie_url' => null,
-                'like_count' => '0',
+                'like_count' => '2',
                 'follow_count' => '0',
          ]);
     }
