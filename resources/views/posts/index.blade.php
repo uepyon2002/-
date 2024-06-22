@@ -3,7 +3,7 @@
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
             <meta charset="utf-8">
-            <title>Blog</title>
+            <title>NearestPoint</title>
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         </head>
@@ -12,9 +12,9 @@
             <div class='posts'>
                 <div class='post'>
                     @foreach ($allPosts as $post)
-                        <h2 class='title'>{{ $post->title }}</h2>
-                        <p class='body'>{{ $post->body }}</p>
-                        <p class='body'>{{ $post->like_count }}</p>
+                    <h2 class='title'><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+                    <p class='body'>{{ $post->body }}</p>
+                    <p class='body'>{{ $post->like_count }}</p>
                     @endforeach
                     <h1>新着</h1>
                     <h2 class='title'>{{ $latestPost->title }}</h2>
