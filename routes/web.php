@@ -19,13 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function() {
-    return view('posts.index');
-});
 
-Route::get('/', [PostController::class, 'index']);
 
-Route::get('/posts/{post}', [PostController::class ,'show']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,10 +35,9 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts', [PostController::class, 'index'])->name('index');
-    
-    Route::get('/newpost', function () {
-    return view('newpost');
-})->middleware(['auth', 'verified'])->name('newpost');
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::get('/posts/create', [PostController::class, 'create'])->name('create');
+    Route::get('/posts/{post}', [PostController::class ,'show']);
 });
 
 require __DIR__.'/auth.php';
