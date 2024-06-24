@@ -16,9 +16,12 @@
                 <h3>本文</h3>
                 <p>{{ $post->body }}</p> 
                 </div>
+                @foreach($post->tags as $tag)
+                <span>{{ $tag->name }}</span>
+                @endforeach
             </div>
             <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/posts">戻る</a>
             </div>
         </body>
     </html>     
